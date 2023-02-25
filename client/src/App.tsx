@@ -6,14 +6,9 @@ import { FakeLandiaRouter } from './components/fakelandia-router';
 
 function App() {
   return (
-
-    <>
       <BrowserRouter>
         <FakeLandiaRouter />
       </BrowserRouter>
-
-    </>
-
   );
 }
 
