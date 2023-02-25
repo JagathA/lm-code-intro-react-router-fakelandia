@@ -1,6 +1,6 @@
 const Footer = () => <footer className='has-background-dark p-5 has-text-light has-text-centered'>
-    <p>@ me 2021-forever</p>
-    <p>awesome site TM</p>
+    <p>@2023-forever</p>
+    <p>Tech Returners Cohort</p>
 </footer>;
 
 export default Footer;
