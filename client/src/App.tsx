@@ -1,18 +1,20 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { FakeLandiaRouter } from './components/fakelandia-router';
 
-function App() {
-  return (
+//import axios from 'axios';
+
+  const App: React.FC = () => {
+
+    return (
       <BrowserRouter>
         <FakeLandiaRouter />
       </BrowserRouter>
-  );
-}
+    );
+  }
 
-export default App;
+  export default App;
 
 // <div className="App">
     //   <header className="App-header">
