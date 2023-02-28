@@ -1,4 +1,42 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+a:link{
+  color:blue;
+ }
+ 
+ a:visited{
+  color:purple;
+ }
+ 
+ a:hover{
+  color:orange;
+ }
+ a:focus{
+ color:green;
+ }
+ 
+ a:active{
+  color:red;
+ }
+ 
+ /* a:active{
+  color:yellow;
+ } */
+
+ /* tr {
+  display: inline-block;
+  /* float: left; */
+/* } */
+/* th,
+td {
+  display: block;
+  text-align: left;
+  padding: 6px;
+  border: 1px solid #ccc;
+} */ 
+
+
+
 /* .App {
   text-align: center;
 }
@@ -52,8 +90,46 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 2rem;
 }
+
+
 
 footer {
   margin-top: auto;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  border-collapse: collapse; 
+}
+th, td {
+  padding: 0.25rem;
+}
+tr.red th {
+  background: red;
+  color: white;
+}
+tr.green th {
+  background: green;
+  color: white;
+}
+tr.purple th {
+  background: purple;
+  color: white;
+}
+th {
+  background: white;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
