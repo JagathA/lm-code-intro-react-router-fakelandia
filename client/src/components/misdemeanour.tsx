@@ -1,11 +1,17 @@
+import { Misdemeanour } from "../types/misdemeanours.types";
 
-const Misdemeanour: React.FC = () =>
+interface MisdemeanourProps {
+    misdemeanour: Misdemeanour;
+  }
+
+const MisdemeanourRow: React.FC<MisdemeanourProps> = ({ misdemeanour }) => {
+    return (
     <>
-        <section>
-            <h2 className='subtitle'>Misdemeanour</h2>
-            <p>I have been a fan of <em>React Router</em> ever since I heard their first album 😍😍</p>
-            <p>Please enjoy my fan page! I'll make more content soon.</p>
-        </section>
-    </>;
+        <tr key={misdemeanour.citizenId}>
+              <td>{misdemeanour.citizenId}</td>
+              <td>{misdemeanour.date}</td>
+              <td>{misdemeanour.misdemeanour}</td>
+            </tr>
+    </>)};
 
-export default Misdemeanour;
+export default MisdemeanourRow;
