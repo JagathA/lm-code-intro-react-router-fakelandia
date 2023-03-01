@@ -17,18 +17,8 @@ const server = setupServer(
       "misdemeanours": [
         {
           "citizenId": 1234,
-          "misdemeanour": "testmis1",
+          "misdemeanour": "vegetables",
           "date": "01/01/2000"
-        },
-        {
-          "citizenId": 5678,
-          "misdemeanour": "testmis2",
-          "date": "02/03/2016"
-        },
-        {
-          "citizenId": 9101112,
-          "misdemeanour": "testmis56",
-          "date": "12/31/2040"
         }]
     }))
   }),
@@ -54,7 +44,7 @@ test('Check Misdeameanour data is rendered correctly', async () => {
 
   await screen.findByText("1234");
   const citizenIDTextElement = screen.getByText("1234");
-  const misdemeanourTextElement = screen.getByText("testmis1");
+  const misdemeanourTextElement = screen.getByText(/Not Eating Your Vegetables =/i);  /* need to check for the emoji */
   const dateTextElement = screen.getByText("01/01/2000");
   expect(citizenIDTextElement).toBeInTheDocument();
   expect(misdemeanourTextElement).toBeInTheDocument();
@@ -62,16 +52,4 @@ test('Check Misdeameanour data is rendered correctly', async () => {
 });
 
 
-// test('Check 500 error is rendered correctly', async () => {
-//   server.use(
-//     rest.get('https://swapi.dev/api/people/1', (_req, res, ctx) => {
-//       return res(ctx.status(500));
-//     }),
-//   );
 
-//   render(<MisdemeanourContainer />);
-
-//   await screen.findByText("Oops... something went wrong, try again");
-//   const textElement = screen.getByText("Oops... something went wrong, try again");
-//   expect(textElement).toBeInTheDocument();
-// });

@@ -1,17 +1,29 @@
-import { Misdemeanour } from "../types/misdemeanours.types";
+import { Misdemeanour, MisdemeanourKind } from "../types/misdemeanours.types";
 
-interface MisdemeanourProps {
+export interface MisdemeanourProps {
     misdemeanour: Misdemeanour;
-  }
+}
 
-const MisdemeanourRow: React.FC<MisdemeanourProps> = ({ misdemeanour }) => {
+export const misdeameanourDisplay =
+{
+    "rudeness": `Mild Public Rudeness = 🤪`,
+    "vegetables": `Not Eating Your Vegetables = 🥗`,
+    "lift": `Speaking in a Lift = 🗣`,
+    "united": ` Supporting Manchester United = 😈`
+};
+
+const MisdemeanourRow: React.FC<Misdemeanour> = ({ citizenId, date, misdemeanour }) => {
+
+
+
     return (
-    <>
-        <tr key={misdemeanour.citizenId}>
-              <td>{misdemeanour.citizenId}</td>
-              <td>{misdemeanour.date}</td>
-              <td>{misdemeanour.misdemeanour}</td>
+        <>
+            <tr key={citizenId}>
+                <td>{citizenId}</td>
+                <td>{date}</td>
+                <td>{misdeameanourDisplay[misdemeanour]}</td>
             </tr>
-    </>)};
+        </>)
+};
 
 export default MisdemeanourRow;
