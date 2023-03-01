@@ -1,0 +1,21 @@
+import React from 'react';
+import { render, screen, } from '@testing-library/react';
+import MisdemeanourRow from './misdemeanour'
+import {Misdemeanour} from '../types/misdemeanours.types'
+
+describe("<MisdemeanourRow>", () => {
+
+  test(`Given the required props, 
+		When the component is rendered
+		Then corrcet values are rendered`, () => {
+    const requiredProps: Misdemeanour = {
+        citizenId: 100,
+        misdemeanour: "rudeness",
+        date: "12/03/2012"
+    }
+    render(<MisdemeanourRow {...requiredProps} />);
+    expect(screen.getByText("100")).toBeInTheDocument();
+    expect(screen.getByText("rudeness")).toBeInTheDocument();
+    expect(screen.getByText("12/03/2012")).toBeInTheDocument();
+  });
+});
