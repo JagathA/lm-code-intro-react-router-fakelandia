@@ -39,7 +39,7 @@ test('Check Table header is rendered correctly', () => {
 });
 
 
-test('Check Misdeameanour data is rendered correctly', async () => {
+test('Check Misdemeanour data is rendered correctly', async () => {
   render(<MisdemeanourContainer />);
 
   await screen.findByText("1234");
