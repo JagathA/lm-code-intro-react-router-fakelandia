@@ -1,11 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { Misdemeanour, MisdemeanourKind } from "../types/misdemeanours.types";
+import { Misdemeanour } from "../types/misdemeanours.types";
 import MisdemeanourRow from './misdemeanour';
+import MisdeameanourFilter, { misdeameanourFilter } from './misdeameanour-filter';
 
 const MisdemeanourContainer: React.FC = () => {
 
     const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
+    const [filter, setFilter] = useState<misdeameanourFilter>('none');
 
     useEffect(() => {
         getMisdemeanours(500);
@@ -21,13 +23,14 @@ const MisdemeanourContainer: React.FC = () => {
 
     const buildRows = () => {
 
-        // we'll need arrays to store the rows in, and they will be of type JSX.Element
         let rows: Array<JSX.Element> = [];
 
-        misdemeanours.forEach((item, index) => {
+        const filteredMisdemeanours = misdemeanours.filter(item => ((item.misdemeanour === filter) || (filter === "none")));
+
+        filteredMisdemeanours.forEach((item, index) => {
             rows.push(
                 <MisdemeanourRow key={index}
-                citizenId = {item.citizenId} date = {item.date}  misdemeanour = {item.misdemeanour}
+                    citizenId={item.citizenId} date={item.date} misdemeanour={item.misdemeanour}
                 />
             );
         })
@@ -43,6 +46,13 @@ const MisdemeanourContainer: React.FC = () => {
                     <th scope="col">Citizen ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Misdemeanour</th>
+
+                </tr>
+                <tr className="red">
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+                    <th scope="col"><MisdeameanourFilter filter={filter} onChange={(newValue) => setFilter(newValue)} /></th>
 
                 </tr>
             </thead>
