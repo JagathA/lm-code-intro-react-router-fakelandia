@@ -29,7 +29,7 @@ const MisdemeanourContainer: React.FC = () => {
         filteredMisdemeanours.forEach((item, index) => {
             rows.push(
                 <MisdemeanourRow key={index}
-                    citizenId={item.citizenId} date={item.date} misdemeanour={item.misdemeanour}
+                    citizenId={item.citizenId} date={item.date} misdemeanour={item.misdemeanour} image = {'https://picsum.photos/50/50'}
                 />
             );
         })
@@ -45,14 +45,14 @@ const MisdemeanourContainer: React.FC = () => {
                     <th scope="col">Citizen ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Misdemeanour</th>
+                    <th scope="col">Punishment Idea</th>
 
                 </tr>
                 <tr className="red">
                     <th scope="col"></th>
                     <th scope="col"></th>
-
                     <th scope="col"><MisdeameanourFilter filter={filter} onChange={(newValue) => setFilter(newValue)} /></th>
-
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
