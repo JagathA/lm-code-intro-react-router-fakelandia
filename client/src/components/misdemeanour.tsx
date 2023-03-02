@@ -4,7 +4,7 @@ export interface MisdemeanourProps {
     misdemeanour: Misdemeanour;
 }
 
-export const misdeameanourDisplay =
+export const misdemeanourDisplay =
 {
     "rudeness": `Mild Public Rudeness = 🤪`,
     "vegetables": `Not Eating Your Vegetables = 🥗`,
@@ -14,14 +14,12 @@ export const misdeameanourDisplay =
 
 const MisdemeanourRow: React.FC<Misdemeanour> = ({ citizenId, date, misdemeanour }) => {
 
-
-
     return (
         <>
             <tr key={citizenId}>
                 <td>{citizenId}</td>
                 <td>{date}</td>
-                <td>{misdeameanourDisplay[misdemeanour]}</td>
+                <td>{misdemeanourDisplay[misdemeanour]}</td>
             </tr>
         </>)
 };
