@@ -33,7 +33,7 @@ const ConfessionText: React.FC<ConfessionTextProps> = ({ confessionText, onChang
 	}
 	return (
 		<>
-			<label htmlFor='ConfessionText' >Reason For Sparing</label>
+			<label htmlFor='ConfessionText' >Type your confession here</label>
 
 			<textarea id='ConfessionText' value={confessionText} onChange={
 				(e) => {
