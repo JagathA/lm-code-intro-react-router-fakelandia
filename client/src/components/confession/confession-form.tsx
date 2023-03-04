@@ -3,13 +3,14 @@ import ConfessionHeader from './header';
 import Subject from './subject';
 import ReasonForContact from './reason-for-contact';
 import {Reason} from '../../types/misdemeanours-display.types'
+import ConfessionText from './confession-text';
 
 
 
 const ConfessionForm = () => {
 	const [subject, setSubject] = useState<string>('');
 	const [reasonForContact, setReasonForContact] = useState<Reason>('I just want to talk');
-	const [confess, setConfess] = useState<string>('I an guilty');
+	const [confessionText, setConfessionText] = useState<string>('I an guilty');
 	const [submitted, setSubmitted] = useState<boolean>(false);
 
 	function submitClicked() {
@@ -26,16 +27,16 @@ const ConfessionForm = () => {
 				<ReasonForContact reasonForContact={reasonForContact} onChange={(newValue) => setReasonForContact(newValue)} />
 			</>
 
-			 {/* <>
-			 	<ReasonForSparing reasonForSparing={reasonForSparing} onChange={(newValue) => setReasonForSparing(newValue)} />
+			 <>
+			 	<ConfessionText confessionText={confessionText} onChange={(newValue) => setConfessionText(newValue)} />
 			 </>
 
-			 <button type='submit' onClick={() => {
+			 {/* <button type='submit' onClick={() => {
 			 	submitClicked();
-			 }}>Submit</button> */} 
+			 }}>Submit</button>   */}
 
 			{/* <section>
-				<SubmittedData submitted={submitted} speciesName={speciesName} planetName={planetName} numberOfBeings={numberOfBeings} twoPlusTwo={twoPlusTwo} reasonForSparing={reasonForSparing} />
+				<SubmittedData submitted={submitted} speciesName={speciesName} planetName={planetName} numberOfBeings={numberOfBeings} twoPlusTwo={twoPlusTwo} confessionText={confessionText} />
 			</section> */}
 
 		
