@@ -1,4 +1,4 @@
-import { Misdemeanour, MisdemeanourKind } from "../types/misdemeanours.types";
+import { MisdemeanourKind } from "../types/misdemeanours.types";
 
 export interface MisdemeanourProps {
     citizenId: number;
@@ -23,7 +23,7 @@ const MisdemeanourRow: React.FC<MisdemeanourProps> = ({ citizenId, date, misdeme
                 <td>{citizenId}</td>
                 <td>{date}</td>
                 <td>{misdemeanourDisplay[misdemeanour]}</td>
-                <td><img src={image} /></td>
+                <td><img src={image} alt="random pictture"/></td>
             </tr>
         </>)
 };
