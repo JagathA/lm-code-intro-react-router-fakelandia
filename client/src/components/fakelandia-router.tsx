@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './home';
-import Confession from './confession';
+import Confession from './confession/confession-form';
 import Misdemeanour from './misdemeanour';
 import NotFound from './not_found';
 import MainLayout from './main_layout';
