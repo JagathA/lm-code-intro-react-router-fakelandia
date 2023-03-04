@@ -17,7 +17,6 @@ const MisdemeanourFilter: React.FC<MisdemeanourFilterProps> = ({ filter, onChang
 
 			<select id='filter' value={filter} onChange={
 				(e) => {	
-					console.log("target value =>", e.target.value);
 					onChange(e.target.value as MisdemeanourKind)
 				}}>
 				<option id="0" >none</option>
