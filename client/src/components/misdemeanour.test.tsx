@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, } from '@testing-library/react';
 import MisdemeanourRow,{MisdemeanourProps}from './misdemeanour'
-import {Misdemeanour} from '../types/misdemeanours.types'
 
 describe("<MisdemeanourRow>", () => {
 
