@@ -1,4 +1,5 @@
 import { MisdemeanourKind } from "../types/misdemeanours.types";
+import {misdemeanourDisplay} from '../types/misdemeanours-display.types'
 
 export interface MisdemeanourProps {
     citizenId: number;
@@ -6,14 +7,6 @@ export interface MisdemeanourProps {
 	date: string;
     image : string;
  }
-
-export const misdemeanourDisplay =
-{
-    "rudeness": `Mild Public Rudeness = 🤪`,
-    "vegetables": `Not Eating Your Vegetables = 🥗`,
-    "lift": `Speaking in a Lift = 🗣`,
-    "united": ` Supporting Manchester United = 😈`
-};
 
 const MisdemeanourRow: React.FC<MisdemeanourProps> = ({ citizenId, date, misdemeanour, image }) => {
 
