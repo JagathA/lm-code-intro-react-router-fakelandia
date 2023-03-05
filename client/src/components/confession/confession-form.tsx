@@ -9,7 +9,7 @@ import ConfessionText from './confession-text';
 
 const ConfessionForm = () => {
 	const [subject, setSubject] = useState<string>('');
-	const [reasonForContact, setReasonForContact] = useState<Reason>('I just want to talk');
+	const [reasonForContact, setReasonForContact] = useState<Reason>('just-talk');
 	const [confessionText, setConfessionText] = useState<string>('I an guilty');
 	const [submitted, setSubmitted] = useState<boolean>(false);
 
