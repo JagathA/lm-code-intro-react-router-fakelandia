@@ -40,7 +40,7 @@ const ReasonForContact: React.FC<reasonForContactProps> = ({ reasonForContact, o
 				<option id="1" >vegetables</option>
 				<option id="2" >lift</option>
 				<option id="3" >united</option>
-				<option id="3" >I just want to talk</option>
+				<option id="4" >I just want to talk</option>
 			</select>
 
 			{/* <ErrorMessage errorMessage={errorMessage} /> */}
