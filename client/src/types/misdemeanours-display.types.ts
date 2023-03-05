@@ -8,4 +8,4 @@ export const misdemeanourDisplay : { [key in MisdemeanourKind]: string} =
     "united": ` Supporting Manchester United = 😈`
 };
 
-export type Reason = MisdemeanourKind | 'I just want to talk';
+export type Reason = MisdemeanourKind | 'just-talk';
