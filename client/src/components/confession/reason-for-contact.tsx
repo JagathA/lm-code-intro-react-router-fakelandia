@@ -7,7 +7,7 @@ import { Reason } from "../../types/misdemeanours-display.types";
 
 export interface reasonForContactProps {
 	reasonForContact: Reason;
-	onChange: (newValue: Reason) => void;
+	onChange: (newValue: Reason, validity: boolean) => void;
 }
 const errLbl = "ERROR:"
 
@@ -20,7 +20,7 @@ const ReasonForContact: React.FC<reasonForContactProps> = ({ reasonForContact, o
 
 	const validate: (value: string) => string | undefined = (value) => {
 
-		if (value !== " ") {
+		if (value === " ") {
 			return errorreasonForContactAnswer;
 		}
 		return undefined;
@@ -34,7 +34,7 @@ const ReasonForContact: React.FC<reasonForContactProps> = ({ reasonForContact, o
 				(e) => {
 					// const errorMessage = validate(e.target.value);
 					// setErrorMessage(errorMessage);
-					onChange(e.target.value as Reason)
+					onChange(e.target.value as Reason, true);
 				}}>
 				<option id="0" >rudeness</option>
 				<option id="1" >vegetables</option>

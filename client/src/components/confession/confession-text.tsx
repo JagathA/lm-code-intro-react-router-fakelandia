@@ -4,7 +4,7 @@ import ErrorMessage from './error-message';
 
 export interface ConfessionTextProps {
 	confessionText: string;
-	onChange: (newValue: string) => void;
+	onChange: (newValue: string, newValidity:boolean) => void;
 }
 const errLbl = "ERROR:"
 const CONFESSION_TEXT_MIN_LENGTH = 17;
@@ -39,7 +39,7 @@ const ConfessionText: React.FC<ConfessionTextProps> = ({ confessionText, onChang
 				(e) => {
 					const errorMessage = validate(e.target.value);
 					setErrorMessage(errorMessage);
-					onChange(e.target.value)
+					onChange(e.target.value, ((errorMessage===undefined)&&(e.target.value!=='')))
 				}} rows={5} cols={100}
 			/>
 			<ErrorMessage errorMessage={errorMessage} />

@@ -4,7 +4,7 @@ import ErrorMessage from './error-message';
 
 export interface SubjectProps {
 	subject: string;
-	onChange: (newValue: string) => void;
+	onChange: (newValue: string, validity: boolean) => void;
 }
 
 const errLbl = "ERROR:"
@@ -40,7 +40,7 @@ const Subject: React.FC<SubjectProps> = ({ subject, onChange }) => {
 					(e) => {
 						const errorMessage = validate(e.target.value);
 						setErrorMessage(errorMessage);
-						onChange(e.target.value)
+						onChange(e.target.value, ((errorMessage===undefined)&&(e.target.value!=='')))
 					}}
 				/>
 				<ErrorMessage errorMessage={errorMessage} />
