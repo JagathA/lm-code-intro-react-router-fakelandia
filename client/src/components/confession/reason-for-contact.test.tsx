@@ -40,6 +40,7 @@ describe("<ReasonForContact>", () => {
 		render(<ReasonForContact {...requiredProps} />);
 		await user.selectOptions(screen.getByLabelText(labelText), "vegetables");
 		expect(requiredProps.onChange).toHaveBeenCalledTimes(1);
+		expect(requiredProps.onChange).toHaveBeenLastCalledWith("vegetables", true);
 	});
 
 });
