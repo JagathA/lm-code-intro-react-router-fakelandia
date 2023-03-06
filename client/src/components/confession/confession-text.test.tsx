@@ -54,11 +54,12 @@ describe("<ConfessionText>", () => {
 		await user.type(screen.getByLabelText(labelText), "1");
 		expect(screen.queryByText(errorConfessionTextTooShort)).not.toBeInTheDocument();
 		expect(screen.queryByText(errorConfessionTextTooLong)).not.toBeInTheDocument();
+		expect(requiredProps.onChange).toHaveBeenLastCalledWith(`${requiredProps.confessionText}1`, true);
 	});
 
 	test(`Given use inputs a invalid inputs for reason for sparing (less than 17 characters ), 
 	when the component is rendered,
-	An error message is not displayed`, async () => {
+	An error message is  displayed`, async () => {
 		const mockChange = jest.fn();
 		const requiredProps: ConfessionTextProps = {
 			confessionText: "123456789012345",
@@ -67,11 +68,13 @@ describe("<ConfessionText>", () => {
 		render(<ConfessionText {...requiredProps} />);
 		await user.type(screen.getByLabelText(labelText), "1");
 		expect(screen.getByText(errorConfessionTextTooShort)).toBeInTheDocument();
+		// This is implementation dependend. But useful. is it a good idea ? 
+		expect(requiredProps.onChange).toHaveBeenLastCalledWith(`${requiredProps.confessionText}1`, false);
 	});
 
 	test(`Given use inputs a invalid inputs for reason for sparing (greater than than 153 characters ), 
 	when the component is rendered,
-	An error message is not displayed`, async () => {
+	An error message is displayed`, async () => {
 		const mockChange = jest.fn();
 		const requiredProps: ConfessionTextProps = {
 			confessionText: `This is a very long text 0f 45 charatceters.
@@ -81,5 +84,7 @@ describe("<ConfessionText>", () => {
 		render(<ConfessionText {...requiredProps} />);
 		await user.type(screen.getByLabelText(labelText), "1");
 		expect(screen.getByText(errorConfessionTextTooLong)).toBeInTheDocument();
+		// This is implementation dependend. But useful. is it a good idea ? 
+		expect(requiredProps.onChange).toHaveBeenLastCalledWith(`${requiredProps.confessionText}1`, false);
 	});
 });
