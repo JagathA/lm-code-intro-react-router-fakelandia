@@ -70,6 +70,8 @@ describe("<Subject>", () => {
 		await user.type(screen.getByLabelText(labelText), "e");
 		await screen.findByText(errorSubjectTooShort);
 		expect(screen.getByText(errorSubjectTooShort)).toBeInTheDocument();
+		expect(requiredProps.onChange).toHaveBeenLastCalledWith(`${requiredProps.subject}e`, false);	
+		
 	});
 
 
@@ -84,6 +86,7 @@ describe("<Subject>", () => {
 		render(<Subject {...requiredProps} />);
 		await user.type(screen.getByLabelText(labelText), "m");
 		expect(screen.getByText(errorSubjectTooLong)).toBeInTheDocument();
+		expect(requiredProps.onChange).toHaveBeenLastCalledWith(`${requiredProps.subject}m`, false);
 	});
 
 
