@@ -1,13 +1,15 @@
 import React from 'react';
-import { useEffect, useState } from "react";
-import { Misdemeanour } from "../types/misdemeanours.types";
+import { useEffect, useState, useContext } from "react";
 import MisdemeanourRow from './misdemeanour';
-import MisdeameanourFilter, { misdemeanourFilter } from './misdemeanour-filter';
+import MisdemeanourFilter, { misdemeanourFilter } from './misdemeanour-filter';
+import {MisdemeanoursContext, SetMisdemeanoursContext} from './fakelandia-router';
 
 const MisdemeanourContainer: React.FC = () => {
 
-    const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
     const [filter, setFilter] = useState<misdemeanourFilter>('none');
+
+    const misdemeanours = useContext(MisdemeanoursContext);
+    const setMisdemeanours = useContext(SetMisdemeanoursContext);
 
     useEffect(() => {
         getMisdemeanours(500);
@@ -17,6 +19,7 @@ const MisdemeanourContainer: React.FC = () => {
 
         const apiResponse = await fetch(`http://localhost:8080/api/misdemeanours/${number}`);
         const json = await apiResponse.json();
+        console.log("******",json.misdemeanours )
         setMisdemeanours(json.misdemeanours);
     };
 
@@ -28,6 +31,8 @@ const MisdemeanourContainer: React.FC = () => {
 
         filteredMisdemeanours.forEach((item, index) => {
             const random =  Math.floor((Math.random() * 50) + 1);
+            
+
             rows.push(
                 <MisdemeanourRow key={index}
                     citizenId={item.citizenId} date={item.date} misdemeanour={item.misdemeanour} image = {`https://picsum.photos/id/${random}/50/50`}
@@ -52,7 +57,7 @@ const MisdemeanourContainer: React.FC = () => {
                 <tr className="red">
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    <th scope="col"><MisdeameanourFilter filter={filter} onChange={(newValue) => setFilter(newValue)} /></th>
+                    <th scope="col"><MisdemeanourFilter filter={filter} onChange={(newValue) => setFilter(newValue)} /></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
