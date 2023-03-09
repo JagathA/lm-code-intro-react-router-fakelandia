@@ -134,3 +134,82 @@ th {
   top: 0;
   width: 100%;
 }
+
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  table {
+    font-size: 0.8rem;
+  }
+
+  td, th {
+    padding: 0.5rem;
+  }
+
+  .red th {
+    background-color: red;
+    color: white;
+  }
+
+  .red th:nth-child(3) {
+    display: block;
+  }
+
+  .red th:nth-child(3) select {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .misdemeanour-row {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .misdemeanour-row td {
+    display: block;
+    margin-bottom: 0.5rem;
+    border: none;
+  }
+
+  .misdemeanour-row td:first-child {
+    font-weight: bold;
+  }
+
+  .misdemeanour-row td:nth-child(2) {
+    font-style: italic;
+  }
+
+  .misdemeanour-row img {
+    float: right;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* For larger devices */
+@media (min-width: 481px) {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .red th {
+    background-color: red;
+    color: white;
+  }
+
+  .misdemeanour-row img {
+    width: 50px;
+    height: 50px;
+  }
+}
