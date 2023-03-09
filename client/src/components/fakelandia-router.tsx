@@ -6,17 +6,20 @@ import MainLayout from './main_layout';
 import MisdemeanourContainer from './misdemeanour-container';
 import React, { createContext } from 'react';
 import { Misdemeanour } from "../types/misdemeanours.types";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import {MisdemeanoursContext, SetMisdemeanoursContext} from './misdemeanour-container';
 
 const misdemeanour: Misdemeanour[] = [];
 const updateMisdemeanour = (misdameanour: Misdemeanour[]) => { };
 
-export const MisdemeanoursContext = createContext(misdemeanour);
-export const SetMisdemeanoursContext = createContext(updateMisdemeanour)
+// export const MisdemeanoursContext = createContext(misdemeanour);
+// export const SetMisdemeanoursContext = createContext(updateMisdemeanour)
 
 export const FakeLandiaRouter: React.FC = () => {
 
-    const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
+    const misdemeanours = useContext(MisdemeanoursContext);
+    const setMisdemeanours = useContext(SetMisdemeanoursContext);
+
 
     return (
         <>

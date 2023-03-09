@@ -1,15 +1,25 @@
 import React from 'react';
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import MisdemeanourRow from './misdemeanour';
 import MisdemeanourFilter, { misdemeanourFilter } from './misdemeanour-filter';
-import {MisdemeanoursContext, SetMisdemeanoursContext} from './fakelandia-router';
+// import {MisdemeanoursContext, SetMisdemeanoursContext} from './fakelandia-router';
+import { Misdemeanour } from "../types/misdemeanours.types";
+
+const misdemeanour: Misdemeanour[] = [];
+const updateMisdemeanour = (misdameanour: Misdemeanour[]) => { };
+export const MisdemeanoursContext = createContext(misdemeanour);
+export const SetMisdemeanoursContext = createContext(updateMisdemeanour)
 
 const MisdemeanourContainer: React.FC = () => {
 
     const [filter, setFilter] = useState<misdemeanourFilter>('none');
 
-    const misdemeanours = useContext(MisdemeanoursContext);
-    const setMisdemeanours = useContext(SetMisdemeanoursContext);
+
+
+    const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
+
+    // const misdemeanours = useContext(MisdemeanoursContext);
+    // const setMisdemeanours = useContext(SetMisdemeanoursContext);
 
     useEffect(() => {
         getMisdemeanours(500);
