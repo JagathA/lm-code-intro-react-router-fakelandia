@@ -35,8 +35,8 @@ const Subject: React.FC<SubjectProps> = ({ subject, onChange }) => {
 	return (
 		<>
 			<p>
-				<label htmlFor='subject'>Subject</label>
-				<input id='subject' type='text' value={subject} onChange={
+			<label htmlFor='subject' className='form__label'>Subject</label>
+				<input className='form__input'id='subject' type='text' value={subject} onChange={
 					(e) => {
 						const errorMessage = validate(e.target.value);
 						setErrorMessage(errorMessage);

@@ -33,9 +33,9 @@ const ConfessionText: React.FC<ConfessionTextProps> = ({ confessionText, onChang
 	}
 	return (
 		<>
-			<label htmlFor='ConfessionText' >Type your confession here</label>
+			<label htmlFor='ConfessionText' className='form__label'>Type your confession here</label>
 
-			<textarea id='ConfessionText' value={confessionText} onChange={
+			<textarea className='form__textarea' id='ConfessionText' value={confessionText} onChange={
 				(e) => {
 					const errorMessage = validate(e.target.value);
 					setErrorMessage(errorMessage);

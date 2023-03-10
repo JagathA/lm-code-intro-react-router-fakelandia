@@ -27,9 +27,9 @@ const ReasonForContact: React.FC<reasonForContactProps> = ({ reasonForContact, o
 
 	return (
 		<>
-			<label htmlFor='reasonForContact'>Reason For Contact</label>
+			<label htmlFor='reasonForContact' className='form__label'>Reason For Contact</label>
 
-			<select id='reasonForContact' value={reasonForContact} onChange={
+			<select  className='form__select'id='reasonForContact' value={reasonForContact} onChange={
 				(e) => {
 					// const errorMessage = validate(e.target.value);
 					// setErrorMessage(errorMessage);

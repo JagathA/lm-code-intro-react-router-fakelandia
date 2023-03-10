@@ -65,7 +65,7 @@ const ConfessionForm : React.FC = () => {
 	}
 
 	return (
-		<section>
+		<section className = 'form' >
 			<ConfessionHeader />
 			<>
 				<Subject subject={subject} onChange={(newValue, newValidity) => { setSubject(newValue); setSubjectValid(newValidity) }} />
